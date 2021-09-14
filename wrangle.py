@@ -5,18 +5,17 @@ from sklearn.model_selection import train_test_split
 from sklearn.impute import SimpleImputer
 from env import user, password, host
 
-
 # Acquire Zillow Data #
 
 def acquire_zillow():
     ''' Acquire data from Zillow using env imports and rename columns'''
     url = f"mysql+pymysql://{user}:{password}@{host}/zillow"
     query = """
-            SELECT bedroomcnt, bathroomcnt, calculatedfinishedsquarefeet, taxvaluedollarcnt, yearbuilt, taxamount, fips,propertylandusedesc, transactiondate
+            SELECT bedroomcnt, bathroomcnt, calculatedfinishedsquarefeet, taxvaluedollarcnt, yearbuilt, taxamount, fips, propertylandusedesc, transactiondate, latitude, longitude, lotsizesquarefeet, garagecarcnt
             FROM properties_2017
             LEFT JOIN propertylandusetype USING(propertylandusetypeid)
             LEFT JOIN predictions_2017 USING(parcelid)
-            WHERE propertylandusedesc IN ("Single Family Residential","Residential General")
+            WHERE propertylandusedesc IN ("Single Family Residential","Rural Residence","Mobile Home","Townhouse","Cluster Home","Condominium","Residential General")
             AND transactiondate <= '2017-08-31' AND transactiondate >= '2017-05-01' """
     # get dataframe of data
     df = pd.read_sql(query, url)
