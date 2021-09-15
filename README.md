@@ -41,7 +41,8 @@ To be able to predict the values of **single unit properties** that the tax dist
 |taxamount|float64|Taxes assessed in Dollars|
 |taxrate|float64|taxamount / assessed value|
 
-
+### Reproduce this Project:
+- You will need an env file with credentials to access the Codeup SQL Database along this repository
 
 
 
