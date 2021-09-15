@@ -11,7 +11,8 @@ def acquire_zillow():
     ''' Acquire data from Zillow using env imports and rename columns'''
     url = f"mysql+pymysql://{user}:{password}@{host}/zillow"
     query = """
-            SELECT bedroomcnt, bathroomcnt, calculatedfinishedsquarefeet, taxvaluedollarcnt, yearbuilt, taxamount, fips, propertylandusedesc, transactiondate, latitude, longitude, lotsizesquarefeet, garagecarcnt
+            SELECT bedroomcnt, bathroomcnt, calculatedfinishedsquarefeet, taxvaluedollarcnt, yearbuilt, taxamount,\
+                 fips, propertylandusedesc, transactiondate, latitude, longitude, lotsizesquarefeet, garagecarcnt
             FROM properties_2017
             LEFT JOIN propertylandusetype USING(propertylandusetypeid)
             LEFT JOIN predictions_2017 USING(parcelid)
