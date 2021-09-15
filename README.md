@@ -19,6 +19,29 @@ To be able to predict the values of **single unit properties** that the tax dist
 - The square footage of the home will be the leading driver of tax value.
 - Bedroom and Bathroom count will have a strong correlation to the area of the home.
 - Year built will also be a top driver of tax value, usually newer homes have a higher value.
+- The area of the home will be a driver of tax value.
+
+#### Data Dictionary:
+
+|Target|Datatype|Definition|
+|:-------|:-------|:----------|
+|logerror|51897 non-null: float64|How far over/under the Zestimate is from assessed value|
+
+|Feature|Datatype|Definition|
+|:-------|:-------|:----------|
+|bathroomcnt|float64|Number of bathrooms|
+|bedroomcnt|float64|Number of bedrooms|
+|calculatedbathnbr|float64|Number of bathrooms and bedrooms|
+|calculatedfinishedsquarefeet|float64|structure size in sqft|
+|fips|float64|Federal Information Processing Standards, unique county code|
+|latitude|float64|Property latitudinal location|
+|longitude|float64|Property longitudinal location|
+||lostsizesquarefeet|float64|Size of entire property in sqft|
+|roomcnt|float64|Number of rooms in structure|
+|taxamount|float64|Taxes assessed in Dollars|
+|taxrate|float64|taxamount / assessed value|
+
+
 
 
 
